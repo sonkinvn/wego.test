@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="01" author="wego.test">
+  	<createTable tableName="car_park_information"
+      remarks="A table to contain all car park">
+      <column name="car_park_no" type="nvarchar(50)">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="address" type="nvarchar(500)">
+        <constraints nullable="false" />
+      </column>
+      <column name="x_coord" type="double">
+        <constraints nullable="false" />
+      </column>
+      <column name="y_coord" type="double">
+        <constraints nullable="false" />
+      </column>
+      <column name="latitude" type="double">
+        <constraints nullable="false" />
+      </column>
+      <column name="longitude" type="double">
+        <constraints nullable="false" />
+      </column>
+      <column name="car_park_type" type="nvarchar(100)"/>
+      <column name="type_of_parking_system" type="nvarchar(100)"/>
+      <column name="short_term_parking" type="nvarchar(100)"/>
+      <column name="free_parking" type="nvarchar(50)"/>
+      <column name="night_parking" type="nvarchar(3)"/>
+      <column name="car_park_decks" type="smallint"/>
+      <column name="gantry_height" type="double"/>
+      <column name="car_park_basement" type="nvarchar(3)"/>
+      
+    </createTable>
+    
+    <createTable tableName="car_park_availability"
+      remarks="A table to contain all car park availables">
+      <column name="car_park_no" type="nvarchar(50)">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="total_lots" type="smallint">
+        <constraints nullable="false" />
+      </column>
+      <column name="lots_available" type="smallint">
+        <constraints nullable="false" />
+      </column>
+      <column name="lot_type" type="nvarchar(3)"/>
+      <column name="update_datetime" type="timestamp"/>
+    </createTable>
+    
+  </changeSet>
+</databaseChangeLog>

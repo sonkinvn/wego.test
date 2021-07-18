@@ -18,6 +18,7 @@ public interface CarParkAvailabilityRepository extends JpaRepository<CarParkAvai
 			+ "    point(b.longitude, b.latitude)) as distance "
 			+ "from car_park_availability a "
 			+ "inner join car_park_information b on a.car_park_no=b.car_park_no "
+			+ "where a.lots_available>0 "
 			+ "order by distance LIMIT ? OFFSET ? ", nativeQuery = true)
 	List<CarParkAvailabilityDTO> getCarParkAvailabilities(Double longitude, Double latitude, Integer per_page, Integer page);
 	
